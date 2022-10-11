@@ -1,0 +1,41 @@
+Hey, alunos! Tudo bem?
+
+Após uma série de testes percebi que houveram atualizações desde que o material foi escrito e algumas fazem com que, se seguir a risca o conteúdo, ele não funcione.
+
+Então na parte do conteúdo Frameworks de apoio: Entity e Bootstrap onde fala do Entity após criar o projeto com dotnet new mvc --no-https
+
+1) O Entity Framework não vai funcionar com dotnet core 5.0 ou 6.0 então é preciso instalar o dotnet core 3.1, dá pra ter os 2 juntos sem problemas.
+
+2) Além deste é preciso instalar o Entity globalmente com o comando
+
+            dotnet tool install --global dotnet-ef --version 3.0.0 
+
+3) Atenção a alteração de alguns comandos:
+
+   
+
+   NÃO USE:
+
+           dotnet add package Pomelo.EntityFrameworkCore.MySql --version 2.2.6
+
+   Use:
+
+          dotnet add package Pomelo.EntityFrameworkCore.MySql --version 3.0.0      
+
+   NÃO USE: 
+
+         dotnet add package Microsoft.EntityFrameworkCore.Design --version 2.2.6   
+
+   Use:
+
+         dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.0.0 
+
+4) Vale lembrar que dotnet ef puro não é um comando, para ser um comando ele precisa de um parâmetro como por exemplo:    
+
+           dotnet ef migrations add CreateDatabase   
+
+   seguido por  
+
+          dotnet ef database update
+
+Bons estudos e qualquer erro, ficamos à disposição para ajudar! ☺
